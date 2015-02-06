@@ -13,7 +13,43 @@ var bio = {
 	"welcomeMessage": "Hello world!",
 	"skills": [
 		"business law", "non-profits", "trademark & copyright", "veterans benefits", "cultural history", "media", "education", "development", "PHP", "MySQL", "HTML", "CSS", "JS", "Git/GitHub"
-	];
+	]
+};
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+if(bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[3]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[4]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[5]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[6]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[7]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[8]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[9]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[10]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[11]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[12]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[13]);
+	$("#skills").append(formattedSkills);
 };
 
 var education = {
@@ -74,13 +110,6 @@ var work = {
 			"description": "Served as Interim Director of Development Services from January 2012 to May 2012. Managed the Research Department of the Office of Institutional Advancement (OIA). Administered the prospect management functions of OIA including the building and management of prospect pools, compiling moves management reports and controlling the general flow of prospects. Research responds to requests for information on prospective donors from within OIA for use by development officers in advancing solicitations to secure support for CUA. Research is also responsible for proactively identifying potential donors to the university from a variety of sources including media and in-person screening sessions. Research is responsible for ensuring that updated information on alumni/donors is collected, documented, and shared with the OIA staff and external offices, such as the Deans’ Offices and the President’s Office."
 		},
 		{
-			"employer": "The Catholic University of America",
-			"title": "Director of Research and Prospect Management",
-			"dates": "2002-2014",
-			"location": "Washington, D.C.",
-			"description": "Served as Interim Director of Development Services from January 2012 to May 2012. Managed the Research Department of the Office of Institutional Advancement (OIA). Administered the prospect management functions of OIA including the building and management of prospect pools, compiling moves management reports and controlling the general flow of prospects. Research responds to requests for information on prospective donors from within OIA for use by development officers in advancing solicitations to secure support for CUA. Research is also responsible for proactively identifying potential donors to the university from a variety of sources including media and in-person screening sessions. Research is responsible for ensuring that updated information on alumni/donors is collected, documented, and shared with the OIA staff and external offices, such as the Deans’ Offices and the President’s Office."
-		},
-		{
 			"employer": "Discovery Channel",
 			"title": "DVD/Special Projects Manager",
 			"dates": "1999-2001",
@@ -101,12 +130,17 @@ var project = {
 	]
 };
 
-//var formattedName = HTMLheaderName.replace("%data%", name);
-//var formattedRole = HTMLheaderRole.replace("%data%", role);
-//
-//$("#header").prepend(formattedRole);
-//$("#header").prepend(formattedName);
-//
+for (item in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[item].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[item].title);
+	$(".work-entry:last").append(formattedEmployer.concat(formattedTitle));
+//	.append(formattedDates)
+//	.append(formattedLocation)
+//	.append(formattedDescription);
+//console.log(work[jobs])
+};
+
 //var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 //var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 //var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
@@ -115,7 +149,6 @@ var project = {
 //var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 //var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
 //var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcome);
-//var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 //
 //$("#topContacts")
 //	.append(formattedEmail)
@@ -131,19 +164,9 @@ var project = {
 //	.append(HTMLskillsStart)
 //	.append(formattedSkills);
 //
-//var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employer);
-//var formattedTitle = HTMLworkTitle.replace("%data%", work.title);
 //var formattedDates = HTMLworkDates.replace("%data%", work.dates);
 //var formattedLocation = HTMLworkLocation.replace("%data%", work.location);
 //var formattedDescription = HTMLworkDescription.replace("%data%", work.description);
-//
-//$("#workExperience")
-//	.append(HTMLworkStart)
-//	.append(formattedEmployer)
-//	.append(formattedTitle)
-//	.append(formattedDates)
-//	.append(formattedLocation)
-//	.append(formattedDescription);
 //
 //var formattedprojectTitle = HTMLprojectTitle.replace("%data%", project.title);
 //var formattedprojectDates = HTMLprojectDates.replace("%data%", project.dates);
