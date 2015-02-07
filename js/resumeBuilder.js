@@ -9,44 +9,10 @@ var bio = {
 		"blog": "",
 		"location": "Gaithersburg, MD",
 	},
-	"bioPic": "/images/me.jpg",
+	"bioPic": "./images/me.jpg",
 	"welcomeMessage": "Hello world!",
 	"skills": [
 		"business law", "non-profits", "trademark & copyright", "veterans benefits", "cultural history", "media", "education", "development", "PHP", "MySQL", "HTML", "CSS", "JS", "Git/GitHub"
-	]
-};
-
-var education = {
-	"schools": [
-		{
-			"name": "Mississippi State University",
-			"location": "Starkville, MS",
-			"degree": "BA",
-			"major": "Anthropology",
-			"date": "1992"
-		},
-		{
-			"name": "University of Maryland",
-			"location": "College Park, MD",
-			"degree": "MA",
-			"major": "American Studies",
-			"date": "2002"
-		},
-		{
-			"name": "The Catholic University of America",
-			"location": "Washington, DC",
-			"degree": "JD",
-			"major": "Law",
-			"date": "2008"
-		}
-	],
-	"onlineCourses": [
-		{
-			"title": "How to Use Git and GitHub",
-			"school": "Udacity",
-			"date": "January 2015",
-			"URL": "https://www.udacity.com/course/ud775"
-		}
 	]
 };
 
@@ -108,11 +74,72 @@ var projects = {
 	]
 };
 
+var education = {
+	"schools": [
+		{
+			"name": "Mississippi State University",
+			"location": "Starkville, MS",
+			"degree": "BA",
+			"major": "Anthropology",
+			"date": "1992"
+		},
+		{
+			"name": "University of Maryland",
+			"location": "College Park, MD",
+			"degree": "MA",
+			"major": "American Studies",
+			"date": "2002"
+		},
+		{
+			"name": "The Catholic University of America",
+			"location": "Washington, DC",
+			"degree": "JD",
+			"major": "Law",
+			"date": "2008"
+		}
+	],
+	"onlineCourses": [
+		{
+			"title": "How to Use Git and GitHub",
+			"school": "Udacity",
+			"date": "January 2015",
+			"URL": "https://www.udacity.com/course/ud775"
+		},
+		{
+			"title": "JavaScript Basics",
+			"school": "Udacity",
+			"date": "February 2015",
+			"URL": "https://www.udacity.com/course/ud804"
+		}
+	]
+};
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+var formattedPicture = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcome);
+
+$("#topContacts")
+	.append(formattedMobile)
+	.append(formattedEmail)
+	.append(formattedTwitter)
+	.append(formattedGitHub)
+	.append(formattedBlog)
+	.append(formattedLocation);
+
+$("#header")
+	.append(formattedPicture)
+	.append(formattedWelcome);
 
 if(bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -160,7 +187,6 @@ function displayWork() {
 			.append(formattedDescription);
 	};
 };
-
 displayWork();
 
 projects.display = function() {
@@ -183,6 +209,40 @@ projects.display = function() {
 };
 projects.display();
 
+function displayEducation() {
+	for (item in education.schools) {
+	$("#education").append(HTMLschoolStart);
+	var formattedName = HTMLschoolName.replace("%data%", education.schools[item].name);
+	var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[item].degree);
+	var formattedDate = HTMLschoolDates.replace("%data%", education.schools[item].date);
+	var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[item].location);
+	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[item].major);
+	$(".education-entry:last")
+		.append(formattedName)
+		.append(formattedDegree)
+		.append(formattedDate)
+		.append(formattedLocation)
+		.append(formattedMajor);
+	};
+};
+displayEducation();
+
+//function displayOnline() {
+//	for (item in education.onlineCourses) {
+//	$("#education").append(HTMLonlineClasses);
+//	var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[item].title);
+//	var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[item].school);
+//	var formattedonlineDate = HTMLonlineDates.replace("%data%", education.onlineCourses[item].date);
+//	var formattedonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[item].URL);
+//	$("#education")
+//		.append(formattedonlineTitle)
+//		.append(formattedonlineSchool)
+//		.append(formattedonlineDate)
+//		.append(formattedonlineURL);
+//	};
+//};
+//displayOnline();
+
 $("#main").append(internationalizeButton);
 function inName (nameString) {
 	nameString = nameString.trim().split(" ");
@@ -192,48 +252,4 @@ function inName (nameString) {
 	return nameString[0] + " " + nameString[1];
 };
 
-//var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-//var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-//var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-//var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-//var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
-//var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-//var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
-//var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcome);
-//
-//$("#topContacts")
-//	.append(formattedEmail)
-//	.append(formattedMobile)
-//	.append(formattedTwitter)
-//	.append(formattedGitHub)
-//	.append(formattedBlog)
-//	.append(formattedLocation);
-//
-//$("#header")
-//	.prepend(formattedPicture)
-//	.append(formattedWelcome);
-//
-//var formattedName = HTMLschoolName.replace("%data%", education.schools[0].name);
-//var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
-//var formattedDate = HTMLschoolDates.replace("%data%", education.schools[0].date);
-//var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[0].location);
-//var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[0].major);
-//
-//$("#education")
-//	.append(HTMLschoolStart)
-//	.append(formattedName)
-//	.append(formattedDegree)
-//	.append(formattedDate)
-//	.append(formattedLocation)
-//	.append(formattedMajor);
-//
-//var formattedonlineTitle = HTMLonlineTitle.replace("%data%", online.title);
-//var formattedonlineSchool = HTMLonlineSchool.replace("%data%", online.school);
-//var formattedonlineDate = HTMLonlineDates.replace("%data%", online.date);
-//var formattedonlineURL = HTMLonlineURL.replace("%data%", online.URL);
-//
-//$("#education")
-//	.append(HTMLonlineClasses)
-//	.append(formattedonlineTitle)
-//	.append(formattedonlineDate)
-//	.append(formattedonlineURL);
+$("#mapDiv").append(googleMap);
