@@ -1,5 +1,5 @@
 var bio = {
-	"name": "Daniel G. Creel",
+	"name": "Daniel Creel",
 	"role": "Attorney; Development Professional",
 	"contacts": {
 		"email": "dancreel@gmail.com",
@@ -148,6 +148,15 @@ function displayWork() {
 };
 
 displayWork();
+
+$("#main").append(internationalizeButton);
+function inName (nameString) {
+	nameString = nameString.trim().split(" ");
+	console.log(nameString);
+	nameString[1] = nameString[1].toUpperCase();
+	nameString[0] = nameString[0].slice(0,1).toUpperCase() + nameString[0].slice(1).toLowerCase();
+	return nameString[0] + " " + nameString[1];
+}
 
 //var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 //var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
