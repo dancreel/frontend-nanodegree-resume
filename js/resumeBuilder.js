@@ -22,28 +22,28 @@ var work = {
 			"employer": "The Catholic University of America",
 			"title": "Director of Advancement Services",
 			"dates": "2014-present",
-			"location": "Washington, D.C.",
+			"location": "Washington, DC",
 			"description": "Directs and integrates all functions in the Department of Advancement Services that are essential to the efficient and effective execution of the university’s fundraising, volunteer engagement, and campaign management efforts. Serves as a visible leader-manager to evaluate operations, analyze data and information, and recommend solutions to help achieve strategic division and institutional goals. Closely collaborates with colleagues to ensure that University Advancement resources are used effectively to grow a culture of increased philanthropy and volunteer leadership to the university. Supervises the Advancement Services Department of the Division of University Advancement."
 		},
 		{
 			"employer": "Future Soccer Club",
 			"title": "Director/Treasurer/Operations Administrator",
 			"dates": "2010-2013",
-			"location": "Silver Spring, Md.",
+			"location": "Silver Spring, MD",
 			"description": "Responsible for general accounting such as monthly bank reconciliations, routine journal entries, general ledger account reconciliation, setting up of new GL accounts. Key contact for the bank and other external financial relationships. Responsible for all aspects of processing payroll for the organization using QuickBooks payroll services. Prepared all required federal and state tax and organizational filings (including annual 990 & 944, and initial 1023 application for non-profit status)."
 		},
 		{
 			"employer": "The Catholic University of America",
 			"title": "Director of Research and Prospect Management",
 			"dates": "2002-2014",
-			"location": "Washington, D.C.",
+			"location": "Washington, DC",
 			"description": "Served as Interim Director of Development Services from January 2012 to May 2012. Managed the Research Department of the Office of Institutional Advancement (OIA). Administered the prospect management functions of OIA including the building and management of prospect pools, compiling moves management reports and controlling the general flow of prospects. Research responds to requests for information on prospective donors from within OIA for use by development officers in advancing solicitations to secure support for CUA. Research is also responsible for proactively identifying potential donors to the university from a variety of sources including media and in-person screening sessions. Research is responsible for ensuring that updated information on alumni/donors is collected, documented, and shared with the OIA staff and external offices, such as the Deans’ Offices and the President’s Office."
 		},
 		{
 			"employer": "Discovery Channel",
 			"title": "DVD/Special Projects Manager",
 			"dates": "1999-2001",
-			"location": "Bethesda, Md.",
+			"location": "Bethesda, MD",
 			"description": "Headed all aspects of DVD production and development for Discovery Communications. Responsible for all day-to-day operations of the International Sales and Marketing group. Managed process for tracking rights and footage exceptions to ensure legal compliance before selling into the market. Responsible for working with regional sales directors to manage their expenses across business units. Worked with the Regional Network Operations groups to determine available programming by region. Supervised a fulfillment coordinator."
 		}
 	]
@@ -253,3 +253,4 @@ function inName (nameString) {
 };
 
 $("#mapDiv").append(googleMap);
+initializeMap();
